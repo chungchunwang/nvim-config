@@ -14,10 +14,54 @@ if not mason_nvim_dap_status_ok then
 end
 
 mason_nvim_dap.setup({
-  automatic_setup = true,
+    automatic_setup = true,
+    ensure_installed = {'cppdbg', 'python'}
 })
-mason_nvim_dap.setup_handlers {}
 
+mason_nvim_dap.setup_handlers {
+    function(source_name)
+      -- all sources with no handler get passed here
+
+      -- Keep original functionality of `automatic_setup = true`
+      require('mason-nvim-dap.automatic_setup')(source_name)
+    end,
+    python = function(source_name)
+        dap.adapters.python = {
+	        type = "executable",
+	        command = "/usr/bin/python3",
+	        args = {
+		        "-m",
+		        "debugpy.adapter",
+	        },
+        }
+        dap.configurations.python = {
+	        {
+		        type = "python",
+		        request = "launch",
+		        name = "Launch file",
+		        program = "${file}", -- This configuration will launch the current file if used.
+	        },
+        }
+    end,
+
+    cppdbg = function(source_name)
+        require('mason-nvim-dap.automatic_setup')(source_name)
+        dap.configurations.cpp = {
+	        {
+            name = "Launch file",
+            type = "cppdbg",
+            request = "launch",
+            program = "a.out",
+            cwd = '${workspaceFolder}',
+            stopAtEntry = true,
+          },
+        }
+    end,
+}
+function _G.cppCompileFileToDebug()
+  vim.cmd("!g++ -g " .. vim.api.nvim_buf_get_name(0))
+end
+vim.api.nvim_set_keymap('n', '<leader>dd', ':lua cppCompileFileToDebug()<CR>', {noremap = true})
 dapui.setup {
   expand_lines = true,
   icons = { expanded = "", collapsed = "", circular = "" },
