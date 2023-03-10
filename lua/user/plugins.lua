@@ -116,6 +116,21 @@ return packer.startup(function(use)
       }
     end
   }
+  -- use {"folke/neodev.nvim",
+  --   config = function ()
+  --     require("neodev").setup({})
+  --     local lspconfig = require('lspconfig')
+  --     lspconfig.lua_ls.setup({
+  --       settings = {
+  --         Lua = {
+  --           completion = {
+  --             callSnippet = "Replace"
+  --           }
+  --         }
+  --       }
+  --     })
+  --   end
+  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

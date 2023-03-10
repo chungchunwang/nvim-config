@@ -49,7 +49,7 @@ mason_nvim_dap.setup_handlers {
         dap.configurations.cpp = {
 	        {
             name = "Launch file",
-            type = "cppdbg",
+            type = "codelldb",
             request = "launch",
             program = "a.out",
             cwd = '${workspaceFolder}',
@@ -59,7 +59,7 @@ mason_nvim_dap.setup_handlers {
     end,
 }
 function _G.cppCompileFileToDebug()
-  vim.cmd("!g++ -g " .. vim.api.nvim_buf_get_name(0))
+  vim.cmd("!g++ -g \"" .. vim.api.nvim_buf_get_name(0) .. "\"")
 end
 vim.api.nvim_set_keymap('n', '<leader>dd', ':lua cppCompileFileToDebug()<CR>', {noremap = true})
 dapui.setup {
