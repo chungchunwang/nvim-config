@@ -37,3 +37,4 @@ Hydra {
     {"d", cmd "!g++ -g \"%:p\" -o \"%:p:h/a.out\"<cr>"}
   },
 }
+vim.cmd("Alpha")

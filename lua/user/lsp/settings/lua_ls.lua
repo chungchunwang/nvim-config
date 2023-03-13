@@ -1,6 +1,9 @@
 return {
   settings = {
     Lua = {
+      completion = {
+        calSnippet = "Replace"
+      },
       diagnostics = {
         globals = { "vim" },
       },
