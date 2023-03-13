@@ -60,6 +60,7 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -69,19 +70,19 @@ keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.curren
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- DAP
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
-keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
-keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
-keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
-keymap("n", "<leader>de", "<cmd>lua require'dapui'.eval()<cr>")
+-- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+-- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+-- keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+-- keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+-- keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+-- keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+-- keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+-- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+-- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+-- keymap("n", "<leader>de", "<cmd>lua require'dapui'.eval()<cr>")
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 keymap("t", "<ESC>", "<C-\\><C-n>", opts)
 -- WSL
-keymap("n", "<leader>wo", "<cmd>!explorer.exe `wslpath -w \"%:p:h\"`<cr>", opts)
+keymap("n", "<leader>wo", "<cmd>silent !explorer.exe `wslpath -w \"%:p:h\"`<cr>", opts)

@@ -99,10 +99,10 @@ return packer.startup(function(use)
   -- DAP
   use { "mfussenegger/nvim-dap", commit = "6b12294a57001d994022df8acbe2ef7327d30587" }
   use { "rcarriga/nvim-dap-ui", commit = "1cd4764221c91686dcf4d6b62d7a7b2d112e0b13" }
-  use { "jay-babu/mason-nvim-dap.nvim"}
-  
+  use { "jay-babu/mason-nvim-dap.nvim" }
+
   -- Motions
-  use { "ggandor/leap.nvim"  }
+  use { "ggandor/leap.nvim" }
   -- Lua
   use {
     "folke/which-key.nvim",
@@ -114,8 +114,58 @@ return packer.startup(function(use)
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
-    end
+    end,
   }
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+  }
+  use {
+    "chentoast/marks.nvim",
+    config = function()
+      require("marks").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+  }
+  use "anuvyklack/hydra.nvim"
+  use "github/copilot.vim"
+  -- use {
+  --   "abecodes/tabout.nvim",
+  --   config = function()
+  --     require("tabout").setup {
+  --       tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+  --       backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+  --       act_as_tab = true, -- shift content if tab out is not possible
+  --       act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+  --       default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+  --       default_shift_tab = "<C-d>", -- reverse shift default action,
+  --       enable_backwards = true, -- well ...
+  --       completion = true, -- if the tabkey is used in a completion pum
+  --       tabouts = {
+  --         { open = "'", close = "'" },
+  --         { open = '"', close = '"' },
+  --         { open = "`", close = "`" },
+  --         { open = "(", close = ")" },
+  --         { open = "[", close = "]" },
+  --         { open = "{", close = "}" },
+  --       },
+  --       ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+  --       exclude = {}, -- tabout will ignore these filetypes
+  --     }
+  --   end,
+  --   wants = { "nvim-treesitter" }, -- or require if not used so far
+  --   after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
+  -- }
   -- use {"folke/neodev.nvim",
   --   config = function ()
   --     require("neodev").setup({})
