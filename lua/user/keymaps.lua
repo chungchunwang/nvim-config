@@ -84,6 +84,7 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 keymap("t", "<ESC>", "<C-\\><C-n>", opts)
+keymap("n", "<leader>lt", "<cmd>TroubleToggle<cr>", opts)
 -- WSL
 keymap("n", "<leader>wo", "<cmd>silent !explorer.exe `wslpath -w \"%:p:h\"`<cr>", opts)
 keymap("n", "<leader>cr", "<cmd>split<cr><cmd>!g++ -g \"%:p\" -o \"%:p:h/a.out\" <cr> <cmd> terminal \"%:p:h/a.out\" <cr>", opts)
