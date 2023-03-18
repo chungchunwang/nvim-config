@@ -11,7 +11,6 @@ Hydra {
   _U_: toggle ui
   _e_: evaluate
   _t_: terminate
-  _d_: compile
   ----------------------
   _L_: run last
   _R_: toggle repl
@@ -33,8 +32,7 @@ Hydra {
     { "L", cmd "lua require'dap'.run_last()<cr>" },
     { "U", cmd "lua require'dapui'.toggle()<cr>" },
     { "t", cmd "lua require'dap'.terminate()<cr>" },
-    { "e", cmd "lua require'dapui'.eval(nil,{enter = true})<cr>" },
-    {"d", cmd "!g++ -g \"%:p\" -o \"%:p:h/a.out\"<cr>"}
+    { "e", cmd "lua require'dapui'.eval(nil,{enter = true})<cr>" }
   },
 }
 vim.cmd("Alpha")
